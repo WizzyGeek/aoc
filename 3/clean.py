@@ -1,4 +1,4 @@
-(lambda p,d:(sum(p[(set(i[:l])&set(i[l:])).pop()]for i,l in map(lambda i:(i,len(i)>>1),d)),sum(p[(set(i)&set(j)&set(k)).pop()]for i,j,k in zip(d[::3],d[1::3],d[2::3]))))(dict(zip(__import__("string").ascii_letters,range(1,53))),open("input.txt","r").read().split())
+(lambda p,d:(sum(p[(set(i[:len(i)>>1])&set(i[len(i)>>1:])).pop()]for i in d),sum(p[(set(i)&set(j)&set(k)).pop()]for i,j,k in zip(d[::3],d[1::3],d[2::3]))))(dict(zip(__import__("string").ascii_letters,range(1,53))),open("input.txt","r").read().split())
 
 # version 3
 # (
