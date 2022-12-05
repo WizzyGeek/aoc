@@ -1,0 +1,28 @@
+>>> d = open("input.txt", "r").read().split()
+>>> r = []
+>>> for i in d:
+...     tmp = i.split(",")
+...     tmp2 = []
+...     for j in tmp:
+...             tmp2.append(set(range(int(j.split("-")[0]),int(j.split("-")[1]))))
+...     r.append(tmp2)
+...     tmp2 = []
+...
+>>> r
+[Output Removed]
+>>> sum(i[0].issubset(i[1]) or i[1].issubset(i[0]) for i in r)
+464
+>>> r[0]
+[{34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82}, {33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81}]
+>>> {1,2,3} & {3,2,3}
+{2, 3}
+>>> sum( for i in r)
+  File "<stdin>", line 1
+    sum( for i in r)
+         ^^^
+SyntaxError: invalid syntax
+>>> dir(set)
+['__and__', '__class__', '__class_getitem__', '__contains__', '__delattr__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__iand__', '__init__', '__init_subclass__', '__ior__', '__isub__', '__iter__', '__ixor__', '__le__', '__len__', '__lt__', '__ne__', '__new__', '__or__', '__rand__', '__reduce__', '__reduce_ex__', '__repr__', '__ror__', '__rsub__', '__rxor__', '__setattr__', '__sizeof__', '__str__', '__sub__', '__subclasshook__', '__xor__', 'add', 'clear', 'copy', 'difference', 'difference_update', 'discard', 'intersection', 'intersection_update', 'isdisjoint', 'issubset', 'issuperset', 'pop', 'remove', 'symmetric_difference', 'symmetric_difference_update', 'union', 'update']
+>>> sum(bool(i[0].intersection(i[1])) for i in r)
+770
+>>>
