@@ -1,3 +1,5 @@
 {
-    "python.linting.enabled": false
+    "python.linting.enabled": false,
+    "python.analysis.autoSearchPaths": true,
+    "python.analysis.inlayHints.functionReturnTypes": false
 }
