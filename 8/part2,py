@@ -1,0 +1,54 @@
+import numpy as np
+
+g = open("8/input.txt","r").read().split()
+d = np.array(list(map(lambda s: list(int(i) for i in s), g)))
+ret = np.ones(shape=d.shape, dtype=np.int64)
+print(d)
+
+ss = np.zeros(shape=10, dtype=np.int16)
+for r, i in enumerate(d):
+    for c, j in enumerate(i):
+        closest = max(ss[j:])
+        # print(c, closest)
+        ret[r, c] *= (c - closest)
+        ss[j] = c
+    ss *= 0
+
+ss *= 0
+
+for c, i in enumerate(d[0]):
+    i = d[:, c]
+    for r, j in enumerate(i):
+        # print(ss, j)
+        closest = max(ss[j:])
+        ret[r, c] *= (r - closest)
+        ss[j] = r
+    ss *= 0
+
+ss *= 0
+ss += d.shape[1] - 1
+
+for r, i in enumerate(d):
+    for c, j in zip(range(len(i)-1, -1, -1), i[::-1]):
+        # print(ss, j)
+        closest = min(ss[j:])
+        ret[r, c] *= (closest - c)
+        ss[j] = c
+    ss *= 0
+    ss += d.shape[1] - 1
+
+ss *= 0
+ss += d.shape[0] - 1
+
+for c, i in enumerate(d[0]):
+    i = d[:, c]
+    for r, j in zip(range(len(i)-1, -1, -1), i[::-1]):
+        closest = min(ss[j:])
+        ret[r, c] *= (closest - r)
+        ss[j] = r
+    ss *= 0
+    ss += d.shape[0] - 1
+
+print(ret)
+print(max(ret.flat))
+
