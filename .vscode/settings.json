@@ -1,5 +1,6 @@
 {
     "python.linting.enabled": false,
     "python.analysis.autoSearchPaths": true,
-    "python.analysis.inlayHints.functionReturnTypes": false
+    "python.analysis.inlayHints.functionReturnTypes": false,
+    "python.languageServer": "Jedi"
 }
