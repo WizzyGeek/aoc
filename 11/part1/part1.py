@@ -1,8 +1,8 @@
-from parsed12 import monkey
+from parsed import monkey
 
 r = [0] * len(monkey)
 
-for g in range(10000):
+for g in range(20):
     # print("==== round", g + 1)
     for k, v in monkey.items():
         s = v["s"]
