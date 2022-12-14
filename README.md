@@ -1,3 +1,3 @@
-I dunno man, I am midcore dev
+# Advent Of Code 2022
 
-please send PR for fast C++ code so that it looks good
+These are my python solution, all solutions are writen with subpar methods.
