@@ -34,19 +34,14 @@ for i in g:
     surface_setter(*i)
     voxel_setter(i)
 
-# print(arr[0:7, 0:7, 0:7])
-# print(voxels[0:7, 0:7, 0:7])
-print(arr[15, 14, 10])
-print(arr.sum(where=(arr > 0) & (arr < 6)))
+print(arr.sum(where=(arr > 0)))
 
 import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D
 
 fig = plt.figure()
 ax = fig.add_subplot(projection='3d')
 ax.voxels(voxels, edgecolor='k')
 
 plt.show()
-print(voxels[0:3, 0:3, 0:3])
 # print(list(g))
 # print(cube)
